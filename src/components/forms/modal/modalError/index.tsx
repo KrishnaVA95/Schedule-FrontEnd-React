@@ -17,8 +17,8 @@ export const ModalError = ({ toggleModal }: ModalErrorProps) => {
     return (
         <div className={styles.container} >
             <div>
-                <h3>Você não está autenticado !</h3>
-                <button onClick={handleCloseandRedirect}>Ir para o login</button>
+                <h3>You are not authenticated!</h3>
+                <button onClick={handleCloseandRedirect}>Go to login</button>
             </div>
         </div>
     )

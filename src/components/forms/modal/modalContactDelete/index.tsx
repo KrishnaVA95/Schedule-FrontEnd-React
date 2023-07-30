@@ -1,5 +1,5 @@
 import {useForm, SubmitHandler} from 'react-hook-form'
-import styles from "../styles.module.scss"
+import styles from "./styles.module.scss"
 import {iRegisterFormData } from '../../validator';
 import { useAuth } from '../../../../hooks/useAuth';
 
@@ -22,7 +22,7 @@ export default function FomrModalContactDelete (){
             <div className={styles.container}>
                 <form onSubmit={handleSubmit(submit)}>
                     <button onClick={() => setModal("off")}>X</button>
-                    <h2>Detele</h2>
+                    <h2>Detele <span>Contact</span></h2>
                     <h3>Confirm to delete contact</h3>
                     <input type="submit" value='Delete'/>
                 </form>
