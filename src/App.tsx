@@ -11,7 +11,6 @@ export const App = () => {
       <AuthProvider>
         <RoutesMain/>
       </AuthProvider>  
-
     </AxiosInterceptor>
     </>
   )

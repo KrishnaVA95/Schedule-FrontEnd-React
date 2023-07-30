@@ -2,6 +2,7 @@ import { ReactNode, createContext, useEffect, useState } from "react";
 import { iLoginFormData, iRegisterContactFormData, iRegisterFormData, iUpdateContactFormData } from "../components/forms/validator";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 
 interface iAuthProviderProps {
@@ -74,28 +75,28 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
             localStorage.setItem("@scheduling:token", token)
             setLoading(false)
 
+            toast.success('User logged in successfully')
             navigate("dashboard")
         }
         catch (error) {
+            toast.error('Incorrect data.')
             console.log(error)
         }
     }
 
     const userLogout = () =>{
         window.localStorage.removeItem("@scheduling:token")
+        toast.success('User Logged Out')
         navigate('/')
-        // toast.success('Usuário Deslogou')
     }
 
     const userRegister = async (data : iRegisterFormData) => {
         try{
             await api.post<iRegisterResponse>('/users', data)
-            // setUser(response.data.user)
+            toast.success('User created successfully')
             navigate('/')
-            // toast.success('Usuario criado com sucesso')
         }catch (error){
-            // const currentError = error as AxiosError<iApiError>
-            // toast.error('Email já cadastrado')
+            toast.error('Email already exists')
             console.error(error)
         }
     }
@@ -103,12 +104,9 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
     const contactRegister = async (data : iRegisterContactFormData) => {
         try{
             await api.post<iRegisterResponse>('/contacts', data)
-            // setUser(response.data.user)
-            // navigate('/')
-            // toast.success('Usuario criado com sucesso')
+            toast.success('Contact created successfully')
         }catch (error){
-            // const currentError = error as AxiosError<iApiError>
-            // toast.error('Email já cadastrado')
+            toast.error('An error has occurred.')
             console.error(error)
         }
     }
@@ -116,8 +114,10 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
     const contactUpdate = async (data: iUpdateContactFormData, id: string) =>{
         try {
             const response = await api.patch(`/contacts/${id}`, data)
+            toast.success('Contact updated successfully')
             return {...response, ...data}
         } catch (error) {
+            toast.error('Unable to update contact')
             console.error(error)
         }
     }
@@ -125,7 +125,9 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
     const contactDelete = async (id: string) =>{
         try {
             await api.delete(`/contacts/${id}`)
+            toast.success('Contact was successfully deleted')
         } catch (error) {
+            toast.error('An error has occurred.')
             console.error(error)
         }
     }

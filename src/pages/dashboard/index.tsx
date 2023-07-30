@@ -7,6 +7,9 @@ import FomrModalContactUpdate from "../../components/forms/modal/modalContactUpd
 import FomrModalContactDelete from "../../components/forms/modal/modalContactDelete"
 import { AiTwotoneEdit, AiFillDelete } from "react-icons/ai";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const Dashboard = () => {
 
     const { renderDashboard, setModal } = useAuth()
@@ -26,6 +29,18 @@ export const Dashboard = () => {
                 <FomrModalContactUpdate />
                 <FomrModalContactDelete/>
             </main>
+            <ToastContainer
+                    position="bottom-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+            />
             </>
         )
     }else if (renderDashboard === "myUser"){
