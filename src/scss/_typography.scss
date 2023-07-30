@@ -1,0 +1,13 @@
+@use "./abstracts" as *;
+
+body,
+input,
+button,
+textarea {
+    color: $color-grey-1000;
+    font-size: 1.6rem;
+}
+
+body{
+    background-color: $color-background;
+}

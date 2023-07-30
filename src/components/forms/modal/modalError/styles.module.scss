@@ -1,0 +1,44 @@
+@use "../../../../scss/abstracts/" as *;
+.container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(3, 19, 33, 0.3);
+    z-index: 1999;
+    div{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50vh;
+        left: 50vw;
+        z-index: 2000;
+        width: 350px;
+        height: 200px;
+        background: $color-background;
+        overflow: hidden;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        @include effect-style-shadow-NEON;
+
+        h3{
+            letter-spacing: 3px;
+
+        }
+
+        button{
+            border: none;
+            background-color: $color-primary-negative;
+            padding: 15px;
+        }
+
+        button:hover{
+            background-color: $color-primary-focus;
+        }
+    }
+
+ 
+}

@@ -1,0 +1,18 @@
+@use "../../scss/abstracts/" as *;
+
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 50px;
+}
+
+@media(min-width: 800px){
+    .container{
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+

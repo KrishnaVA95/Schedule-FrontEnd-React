@@ -1,0 +1,67 @@
+@use '../../scss/abstracts/' as *;
+
+.container{
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: auto;
+    padding-top: 12vh;
+    display: flex;
+    flex-direction: column;
+
+
+
+    header{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        section{
+            display: flex;
+        }
+        button{
+            border-right: 1px solid rgba(255,255,255,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            padding: 10px;
+            min-width: 50px;
+            height: 50px;
+            margin: 5px 20px 20px 5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 4px #00000040;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #FF577F;
+            @include text-style-Titles;
+        }
+
+        button::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 3;
+            width: 90px;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            transform: skewX(45deg) translateX(450px);
+            transition: 0.9s;
+        }
+
+        button:hover::before{
+            transform: skewX(45deg) translateX(-350px);
+        }
+    }
+}
+
+.messageError{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 50vw;
+    color: #FF577F;
+    @include text-style-Titles;
+    text-align: center;
+    letter-spacing: 4px;
+}
